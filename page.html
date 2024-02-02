@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+</head>
+<body style="text-align: center;">
+    <input type="text" id="usr" placeholder="Identifiant" style="margin-bottom: 15px;">
+    <br>
+    <input type="text" id="mdp" placeholder="Mot de passe" style="margin-bottom: 15px;">
+    <br>
+    <input type="button" onclick="session()" value="Valider" style="margin-bottom: 15px;">
+
+    <script>
+        function session(){
+            let ssUser = document.getElementById("usr").value;
+            localStorage.setItem("id", ssUser);
+            const nom = localStorage.getItem("id");
+            console.log("ID:", nom);
+        }
+    </script>
+</body>
+</html>
