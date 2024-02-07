@@ -1,0 +1,33 @@
+ 
+  <!DOCTYPE html> 
+  <html lang="en"> 
+  <head> 
+      <meta charset="UTF-8"> 
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+      <title>Todo List</title> 
+      <link rel="stylesheet" href="styles.css">
+      <script>
+        function boot(){
+            if (localStorage.length != 0){
+                for (let i = 0; i < localStorage.length; i++){
+                    localStorage.getItem("task" + i);
+                    const listItem = document.createElement("li");
+                    listItem.textContent = localStorage.getItem("task" + i);
+                    taskList.appendChild(listItem);
+                }
+            }
+        }
+      </script>
+  </head> 
+  <body onload="boot()"> 
+      <div class="container"> 
+          <h1>Ma Liste de tâches</h1> 
+          <input type="text" id="taskInput" placeholder="Nouvelle tâche...">
+          <br>
+          <input type="button" onclick="addTask()" id="addTaskBtn" value="Ajouter"></input>
+          <input type="button" onclick="localStorage.clear()" id="clearMemoryBtn" value="Clear"></input>
+          <ul id="taskList"></ul> 
+      </div> 
+      <script src="script.js"></script>
+  </body> 
+  </html>
